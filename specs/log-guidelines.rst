@@ -67,7 +67,13 @@ be interpreted):
   not be so verbose as to overwhelm real signal with noise. Should not
   be continuous "I'm alive!" messages.
 - Debug: developer logging level, only enable if you are interested in
-  reading through a ton of additional information about what is going on.
+  reading through a ton of additional information about what is going
+  on.
+- Trace: In functions which support this level, details every
+  parameter and operation to help diagnose subtle bugs. This should
+  only be enabled for specific areas of interest or the log volume
+  will be overwhelming. Some system performance degradation should be
+  expected.
 
 Proposed Changes From Status Quo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,6 +87,19 @@ which is not longer really relevant to the current code.
 Information that was previously being emitted at AUDIT should instead
 be sent as notifications to a notification queue. *Note: Notification formats
 and frequency are beyond the scope of this spec.*
+
+- Define TRACE logging level
+
+TRACE is a logging keyword that is understood by most logging
+tools. OpenStack has repurposed this in the past to not be TRACE
+logging but instead be used whenever a Stacktrace was dumped.
+
+Stack traces should be logged at ERROR level (they currently
+aren't).
+
+TRACE should be defined as log level 5 in python (which is lower than
+DEBUG), and LOG.trace support should be added to oslo
+logger. LOG.trace can then be used for deep tracing of code.
 
 Overall Logging Rules
 ---------------------
@@ -382,3 +401,5 @@ References
   https://wiki.openstack.org/wiki/Security/Guidelines/logging_guidelines
 - Wiki page for basic logging standards proposal developed early in
   Icehouse - https://wiki.openstack.org/wiki/LoggingStandards
+- Apache Log4j levels (which many tools work with) -
+  https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html
