@@ -2,7 +2,7 @@
 CORS Support
 ============
 
-The W3C has released a Technical Recommendation (TR) via which an API may
+The W3C has released a Technical Recommendation (TR) by which an API may
 permit a user agent - usually a web browser - to selectively break the
 `same-origin policy`_. This permits javascript running in the user agent to
 access the API from domains, protocols, and ports that do not match the API
@@ -54,11 +54,15 @@ Proposed change
 All OpenStack API's should implement a common middleware that implements CORS
 in a reusable, optional fashion. This middleware must be well documented,
 with security concerns highlighted, in order to properly educate the operator
-community on their choices.
+community on their choices. The middleware must default to inactive, unless
+it is activated either explicitly, or implicitly via a provided configuration.
 
-`CORS Middleware`_ is available in oslo_middleware version 0.3.0. Additional
-work would be required to add this middleware to the appropriate services,
-and to add the necessary documentation to the docs repository.
+`CORS Middleware`_ is available in oslo_middleware version 0.3.0. This
+particular implementation defaults to inactive, unless appropriate configuration
+options are detected in oslo_config, and its documentation already covers key
+security concerns. Additional work would be required to add this middleware
+to the appropriate services, and to add the necessary documentation to the
+docs repository.
 
 Note that improperly implemented CORS_ support is a security concern, and
 this should be highlighted in the documentation.
@@ -66,14 +70,15 @@ this should be highlighted in the documentation.
 Alternatives
 ------------
 
-One alternative is to provide a proxy, much like horizon's implementation, or
-a well configured Apache mod_proxy. It would require additional documentation
+One alternative is to provide a proxy, much like horizon's implementation,
+or a well configured Apache mod_proxy. It would require additional documentation
 that teaches UI development teams on how to implement and build on it. These
-options are already available and well documented, however they do not truly
-address the problem of services such as Ironic, which represents its resource
-links in a strictly RESTful fashion. In that case, the proxy would have to read
-every request and response, and replace all link references to Ironic with
-references to itself.
+options are already available and well documented, however they do not enable
+experimentation or deployment of alternative UIs in the same way that CORS can,
+since they require the UI to be hosted in the same endpoint. This requires
+either close deployment cooperation, or deployment of a proxy-per-UI. CORS can
+permit UIs to be deployed using static files, allowing much lower cost-of-entry
+overheads.
 
 Implementation
 ==============
