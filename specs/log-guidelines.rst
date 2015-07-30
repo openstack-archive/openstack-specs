@@ -156,6 +156,7 @@ above messages.
 **Good**
 
 ::
+
    2014-01-26 15:36:10.597 28297 INFO nova.virt.libvirt.driver [-]
    [instance: b1b8e5c7-12f0-4092-84f6-297fe7642070] Instance spawned
    successfully.
@@ -167,6 +168,7 @@ above messages.
 **Bad**
 
 ::
+
    2014-01-26 15:36:11.198 INFO nova.virt.libvirt.driver
    [req-ded67509-1e5d-4fb2-a0e2-92932bba9271
    FixedIPsNegativeTestXml-1426989627 FixedIPsNegativeTestXml-38506689]
@@ -199,6 +201,7 @@ Messages shouldn't need a secret decoder ring
 **Bad**
 
 ::
+
    2014-01-26 15:36:14.256 28297 INFO nova.compute.manager [-]
    Lifecycle event 1 on VM b1b8e5c7-12f0-4092-84f6-297fe7642070
 
