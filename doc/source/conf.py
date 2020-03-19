@@ -23,12 +23,12 @@ sys.path.insert(0, os.path.abspath('../..'))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'oslosphinx',
+    'openstackdocstheme',
     'yasfb',
 ]
 
 # Feed configuration for yasfb
-feed_base_url = 'http://specs.openstack.org/openstack/openstack-specs'
+feed_base_url = 'https://specs.openstack.org/openstack/openstack-specs'
 feed_author = 'OpenStack Development Team'
 
 exclude_patterns = [
@@ -66,6 +66,11 @@ add_module_names = True
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+
+# -- openstackdocstheme configuration -----------------------------------------
+
+repository_name = 'openstack/openstack-specs'
+html_theme = 'openstackdocs'
 
 # -- Options for HTML output --------------------------------------------------
 
