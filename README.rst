@@ -1,23 +1,15 @@
-=====================================================
- OpenStack Cross-Project Specifications and Policies
-=====================================================
+This project is no longer maintained.
 
-This repository contains specifications and policies that apply to
-OpenStack as a whole.
+The contents of this repository are still available in the Git
+source code management system.  To see the contents of this
+repository before it reached its end of life, please check out the
+previous commit with "git checkout HEAD^1".
 
-.. note:: The OpenStack Cross-Project specification process has been
-          deprecated in favor of `OpenStack-wide Goals
-          <https://governance.openstack.org/tc/goals/index.html>`__ and
-          `OpenStack SIGs <https://wiki.openstack.org/wiki/OpenStack_SIGs>`__.
-          The documents found here are still useful as historical artifacts,
-          but at this time the specifications are not actionable
+The OpenStack Cross-Project specification process has been deprecated
+in favor of `OpenStack-wide Goals <https://governance.openstack.org/tc/goals/index.html>`__
+, `OpenStack SIGs <https://wiki.openstack.org/wiki/OpenStack_SIGs>`__ , and
+`OpenStack Popup-teams <https://governance.openstack.org/tc/reference/popup-teams.html>`__. 
 
-This work is licensed under a `Creative Commons Attribution 3.0
-Unported License
-<http://creativecommons.org/licenses/by/3.0/legalcode>`__.
-
-The source files are available via the openstack/openstack-specs git
-repository at http://git.openstack.org/cgit/openstack/openstack-specs.
-
-Published versions of approved specifications and policies can be
-found at http://specs.openstack.org/openstack/openstack-specs.
+For any further questions, please email
+openstack-discuss@lists.openstack.org or join #openstack-dev on
+OFTC.
